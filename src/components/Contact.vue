@@ -1,15 +1,6 @@
 <template>
   <section
-    class="
-      container
-      mx-auto
-      flex flex-col
-      text-white
-      items-center
-      px-44
-      h-auto
-      font-DMSan
-    "
+    class="container mx-auto flex flex-col text-white items-center px-44 h-auto font-DMSan"
   >
     <h1 class="text-4xl font-DM">Contact me</h1>
     <main class="py-12">
@@ -29,33 +20,13 @@
         <label class="block py-2">Message</label>
 
         <textarea
-          class="
-            p-2
-            bg-mud
-            outline-none
-            border border-bor-green border-dashed
-            w-96
-            h-56
-            rounded
-            resize-none
-          "
+          class="p-2 bg-mud outline-none border border-bor-green border-dashed w-96 h-56 rounded resize-none"
           placeholder="Enter your message......."
         ></textarea>
       </div>
       <div class="flex justify-end py-3">
         <button
-          class="
-            px-5
-            py-2
-            bg-green
-            text-dark
-            focus:ring-offset-light-green
-            duration-300
-            ease-in-out
-            hover:bg-light-green
-            font-DMSan font-bold
-            rounded-md
-          "
+          class="px-5 py-2 bg-green text-dark focus:ring-offset-light-green duration-300 ease-in-out hover:bg-light-green font-DMSan font-bold rounded-md"
         >
           Contact
         </button>
@@ -92,5 +63,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
