@@ -20,92 +20,14 @@
     </p>
     <main class="my-3 grid grid-cols-4 gap-2">
       <div
+        v-for="item in skills"
+        :key="item.id"
         class="bg-mud p-3 rounded-lg flex justify-center items-center flex-col"
       >
-        <img
-          class="w-10 rounded"
-          src="../assets/javascript.svg"
-          alt="javascript"
-        />
-        <h1 class="font-bold text-lg py-2">Javascript</h1>
+        <img class="w-10 rounded" :src="item.src" :alt="item.name" />
+        <h1 class="font-bold text-lg py-2">{{ item.name }}</h1>
         <p class="text-center font-extralight">
-          Core technologie of the World Wide Web, alongside HTML and CSS
-        </p>
-      </div>
-      <div
-        class="bg-mud p-3 rounded-lg flex justify-center items-center flex-col"
-      >
-        <img
-          class="w-10 rounded"
-          src="../assets/typescript.svg"
-          alt="typescript"
-        />
-        <h1 class="font-bold text-lg py-2">Typescript</h1>
-        <p class="text-center font-extralight">
-          Superset of JavaScript and adds optional static typing to the language
-        </p>
-      </div>
-      <div
-        class="bg-mud p-3 rounded-lg flex justify-center items-center flex-col"
-      >
-        <img class="w-10 rounded" src="../assets/firebase.svg" alt="firebase" />
-        <h1 class="font-bold text-lg py-2">Firebase</h1>
-        <p class="text-center font-extralight">
-          A platform developed by Google for creating mobile and web
-          applications
-        </p>
-      </div>
-      <div
-        class="bg-mud p-3 rounded-lg flex justify-center items-center flex-col"
-      >
-        <img class="w-10 rounded" src="../assets/vuejs.svg" alt="vuejs" />
-        <h1 class="font-bold text-lg py-2">Vue Js</h1>
-        <p class="text-center font-extralight">
-          JavaScript framework for building single-page applications
-        </p>
-      </div>
-      <div
-        class="bg-mud p-3 rounded-lg flex justify-center items-center flex-col"
-      >
-        <img class="w-10 rounded" src="../assets/nuxt.svg" alt="nuxtjs" />
-        <h1 class="font-bold text-lg py-2">Nuxt Js</h1>
-        <p class="text-center font-extralight">
-          JavaScript library based on Vue.js, Node.js, Webpack and Babel.js
-        </p>
-      </div>
-      <div
-        class="bg-mud p-3 rounded-lg flex justify-center items-center flex-col"
-      >
-        <img
-          class="w-10 rounded"
-          src="../assets/electronjs.svg"
-          alt="wlectronjs"
-        />
-        <h1 class="font-bold text-lg py-2">Electron Js</h1>
-        <p class="text-center font-extralight">
-          Open-source JavaScript framework developed and maintained by GitHub
-        </p>
-      </div>
-      <div
-        class="bg-mud p-3 rounded-lg flex justify-center items-center flex-col"
-      >
-        <img class="w-10 rounded" src="../assets/sass.svg" alt="sass/scss" />
-        <h1 class="font-bold text-lg py-2">Sass/Scss</h1>
-        <p class="text-center font-extralight">
-          SASS/SCSS extends CSS by providing several mechanisms
-        </p>
-      </div>
-      <div
-        class="bg-mud p-3 rounded-lg flex justify-center items-center flex-col"
-      >
-        <img
-          class="w-10 rounded"
-          src="../assets/tailwindcss.svg"
-          alt="tailwindcss"
-        />
-        <h1 class="font-bold text-lg py-2">Tailwindcss</h1>
-        <p class="text-center font-extralight">
-          A utility-first CSS framework packed with classes
+          {{ item.text }}
         </p>
       </div>
     </main>
@@ -130,6 +52,52 @@ import Buttons from "./Buttons.vue";
 export default {
   name: "About",
   components: { Buttons },
+  data() {
+    return {
+      skills: [
+        {
+          name: "Javascript",
+          src: "../assets/javascript.svg",
+          text: "Core technologie of the World Wide Web, alongside HTML and CSS",
+        },
+        {
+          name: "Typescript",
+          src: "../assets/typescript.svg",
+          text: "Superset of JavaScript and adds optional static typing to the language",
+        },
+        {
+          name: "Firebase",
+          src: "../assets/firebase.svg",
+          text: " A platform developed by Google for creating mobile and web applications",
+        },
+        {
+          name: "Vue Js",
+          src: "../assets/vuejs.svg",
+          text: "JavaScript framework for building single-page applications",
+        },
+        {
+          name: "Nuxt Js",
+          src: "../assets/nuxt.svg",
+          text: " JavaScript library based on Vue.js, Node.js, Webpack and Babel.js",
+        },
+        {
+          name: "Electron Js",
+          src: "../assets/electronjs.svg",
+          text: "Open-source JavaScript framework developed and maintained by GitHub",
+        },
+        {
+          name: "Sass/Scss",
+          src: "../assets/sass.svg",
+          text: "SASS/SCSS extends CSS by providing several mechanisms",
+        },
+        {
+          name: "Tailwindcss",
+          src: "../assets/tailwindcss.svg",
+          text: "A utility-first CSS framework packed with classes",
+        },
+      ],
+    };
+  },
 };
 </script>
 
