@@ -7,6 +7,9 @@ module.exports = {
         'DM': ['DM Serif Display', 'serif'],
         'DMSan': ['DM Sans', 'sans-serif']
       },
+      width: {
+        '128': '32rem',
+      },
       colors: {
         transparent: 'transparent',
         current: 'currentColor',

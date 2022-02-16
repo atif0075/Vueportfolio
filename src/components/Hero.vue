@@ -29,8 +29,29 @@
         class="text-4xl tracking-wide leading-relaxed font-bold font-DM text-center"
       >
         Build and Design Modern <br />
-        Websites with <span class="text-green">Vue/Nuxt</span> and <br />
-        use <span class="text-yellow-400">Firebase</span> for backend
+        Websites with
+        <span class="text-green relative"
+          >Vue/Nuxt
+          <img
+            class="absolute -bottom-3 left-0"
+            src="../assets/linegreen.svg"
+            alt=""
+          />
+        </span>
+        and
+        <br />
+        use
+        <span class="text-yellow-400 relative"
+          >Firebase
+          <span>
+            <img
+              class="absolute -bottom-3 left-0"
+              src="../assets/line.svg"
+              alt=""
+            />
+          </span>
+        </span>
+        for backend
       </p>
     </main>
     <Buttons />

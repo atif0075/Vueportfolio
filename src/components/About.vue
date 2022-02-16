@@ -1,15 +1,6 @@
 <template>
   <section
-    class="
-      container
-      mx-auto
-      flex flex-col
-      justify-center
-      text-white
-      items-center
-      px-44
-      font-DMSan
-    "
+    class="container mx-auto flex flex-col justify-center text-white items-center px-44 font-DMSan"
   >
     <h1 class="text-4xl font-DM">About me</h1>
     <p class="text-justify py-4">
@@ -24,7 +15,8 @@
       websites for modern businesses. Any business today needs a website 🌐 that
       wins customers’ trust and helps you do your
       <span class="span">business</span> well. I make sure your website is up to
-      that standard.
+      that standard. I am <span class="span">well</span> familiar with following
+      <span class="span">skills</span>.
     </p>
     <main class="my-3 grid grid-cols-4 gap-2">
       <div
@@ -141,5 +133,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

@@ -20,7 +20,7 @@
         <label class="block py-2">Message</label>
 
         <textarea
-          class="p-2 bg-mud outline-none border border-bor-green border-dashed w-96 h-56 rounded resize-none"
+          class="p-2 bg-mud outline-none border border-bor-green border-dashed w-128 h-56 rounded resize-none"
           placeholder="Enter your message......."
         ></textarea>
       </div>
@@ -28,7 +28,7 @@
         <button
           class="px-5 py-2 bg-green text-dark focus:ring-offset-light-green duration-300 ease-in-out hover:bg-light-green font-DMSan font-bold rounded-md"
         >
-          Contact
+          Submit
         </button>
       </div>
       <p>Or <span class="span">Contact</span> using</p>
