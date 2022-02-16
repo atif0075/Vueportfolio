@@ -3,3 +3,10 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.span {
+  @apply text-green font-semibold;
+}
+.input {
+  @apply p-2 bg-mud outline-none border border-bor-green border-dashed w-96 rounded;
+}

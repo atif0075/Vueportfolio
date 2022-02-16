@@ -13,19 +13,18 @@
   >
     <h1 class="text-4xl font-DM">About me</h1>
     <p class="text-justify py-4">
-      Hi there 👋. I am <span class="text-green font-semibold">Atif</span> 😍, a
-      self-taught web developer from Faisalabad, Pakistan. I help designers,
-      small agencies and businesses bring their ideas to life. Powered by
-      <span class="text-green font-semibold">Figma</span>,
-      <span class="text-green font-semibold">VS Code</span>
-      and <span class="text-green font-semibold">Coffee</span> ☕. I can turn
-      your requirements into interactable visuals on
-      <span class="text-green font-semibold">time</span> ⏰ and on
-      <span class="text-green font-semibold">budget</span> 💰.I design beautiful
-      and powerful websites for modern businesses. Any business today needs a
-      website 🌐 that wins customers’ trust and helps you do your
-      <span class="text-green font-semibold">business</span> well. I make sure
-      your website is up to that standard.
+      Hi there 👋. I am <span class="span">Atif</span> 😍, a self-taught web
+      developer from Faisalabad, Pakistan. I help designers, small agencies and
+      businesses bring their ideas to life. Powered by
+      <span class="span">Figma</span>,
+      <span class="span">VS Code</span>
+      and <span class="span">Coffee</span> ☕. I can turn your requirements into
+      interactable visuals on <span class="span">time</span> ⏰ and on
+      <span class="span">budget</span> 💰.I design beautiful and powerful
+      websites for modern businesses. Any business today needs a website 🌐 that
+      wins customers’ trust and helps you do your
+      <span class="span">business</span> well. I make sure your website is up to
+      that standard.
     </p>
     <main class="my-3 grid grid-cols-4 gap-2">
       <div
@@ -123,12 +122,11 @@
         Interested in Working with me?
       </p>
       <p class="text-center text-sm pt-2">
-        I am always <span class="text-green font-semibold">happy</span> to dirty
-        my hands on a <span class="text-green font-semibold">complex</span>
+        I am always <span class="span">happy</span> to dirty my hands on a
+        <span class="span">complex</span>
         <br />
         task, so do not
-        <span class="text-green font-semibold">hesitate</span> to hit me up with
-        your requests!
+        <span class="span">hesitate</span> to hit me up with your requests!
       </p>
       <Buttons />
     </main>
