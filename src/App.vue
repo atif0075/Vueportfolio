@@ -16,4 +16,13 @@ export default {
   background: #00dc82;
   color: #001e26;
 }
+*::-webkit-scrollbar {
+  width: 6px;
+}
+*::-webkit-scrollbar-track {
+  background: #003543;
+}
+*::-webkit-scrollbar-thumb {
+  background: #00dc82;
+}
 </style>
