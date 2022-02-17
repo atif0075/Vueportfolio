@@ -1,32 +1,22 @@
 <template>
   <section
-    class="w-full h-auto flex flex-col justify-center items-center py-12 text-white container mx-auto relative"
+    class="w-full h-auto flex flex-col justify-center items-center py-20 sm:py-12 text-white container mx-auto relative"
   >
-    <main>
-      <div
-        class="absolute h-60 w-60 mix-blend-multiply filter blur-2xl bg-mud opacity-50 rounded-full left-2/4 top-3.5 animate-blob"
-      ></div>
-      <div
-        class="absolute animate-blob h-60 w-60 mix-blend-multiply filter blur-2xl bg-mud opacity-50 rounded-full left-1/3 top-3.5"
-      ></div>
-      <div
-        class="absolute h-60 animate-blob w-60 mix-blend-multiply filter blur-2xl bg-mud opacity-50 rounded-full left-forty top-1/4"
-      ></div>
-    </main>
+    <BlurryBackground />
 
     <main class="z-10">
       <img
-        class="w-28 rounded-full p-1 border-8 border-mud"
+        class="w-24 sm:w-28 rounded-full p-1 border-8 border-mud"
         src="../assets/myPic.jpg"
         alt="myPic"
       />
     </main>
-    <main class="z-10">
+    <main class="z-10 py-8 md:py-0">
       <p class="text-center font-DMSan font-semibold text-lg py-5">
         Hi, I am Atif 👋
       </p>
       <p
-        class="text-4xl tracking-wide leading-relaxed font-bold font-DM text-center"
+        class="sm:text-4xl text-2xl tracking-wide leading-loose sm:leading-relaxed font-bold font-DM text-center"
       >
         Build and Design Modern <br />
         Websites with
@@ -35,7 +25,6 @@
           <img
             class="absolute -bottom-3 left-0"
             src="../assets/linegreen.svg"
-            alt=""
           />
         </span>
         and
@@ -44,28 +33,27 @@
         <span class="text-yellow-400 relative"
           >Firebase
           <span>
-            <img
-              class="absolute -bottom-3 left-0"
-              src="../assets/line.svg"
-              alt=""
-            />
+            <img class="absolute -bottom-3 left-0" src="../assets/line.svg" />
           </span>
         </span>
         for backend
       </p>
     </main>
-    <Buttons />
+    <main class="px-1">
+      <Buttons />
+    </main>
   </section>
 </template>
 
 <script>
 import Buttons from "./Buttons.vue";
+import BlurryBackground from "./BlurryBackground.vue";
 export default {
   name: "Hero",
   data: () => {
     return {};
   },
-  components: { Buttons },
+  components: { Buttons, BlurryBackground },
 };
 </script>
 <style></style>

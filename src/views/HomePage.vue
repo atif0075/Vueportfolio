@@ -1,6 +1,7 @@
 <template>
-  
-  <Hero />
+  <section class="h-auto ">
+    <Hero />
+  </section>
 </template>
 
 <script>

@@ -21,6 +21,7 @@ module.exports = {
       },
       animation: {
         blob: "blob 7s infinite",
+        fade: "fade 1.0s infinite ease-out",
       },
       keyframes: {
         blob: {
@@ -35,6 +36,17 @@ module.exports = {
           },
           "100%": {
             transform: "tranlate(0px, 0px) scale(1)",
+          },
+        },
+        fade: {
+          "0%": {
+            opacity: "0",
+
+          },
+
+          "100%": {
+            opacity: "1",
+
           },
         },
       },

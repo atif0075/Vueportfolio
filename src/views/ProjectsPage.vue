@@ -1,17 +1,19 @@
 <template>
   <section
-    class="container mx-auto flex flex-col text-white items-center px-44 min-h-screen h-auto font-DMSan"
+    class="container mx-auto flex flex-col text-white items-center px-3 lg:px-44 pt-6 lg:pt-0 min-h-screen h-auto font-DMSan"
   >
-    <h1 class="text-4xl font-DM">Projects</h1>
-    <main class="grid grid-cols-3 gap-4 py-10">
+    <h1 class="heading">Projects</h1>
+    <main class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-10">
       <div class="w-full" v-for="item in project" :key="item.id">
         <div class="bg-mud p-3 rounded-lg overflow-hidden">
           <img
-            class="w-96 bg-center rounded-lg"
+            class="w-full bg-center rounded-lg"
             :src="item.src"
             :alt="item.name"
           />
-          <h1 class="py-2 font-bold text-2xl">Xono Web App</h1>
+          <h1 class="py-2 font-bold text-2xl sm:text-3xl">
+            {{ item.name }}
+          </h1>
           <p>
             {{ item.text }}
           </p>
@@ -36,6 +38,8 @@
 </template>
 
 <script>
+import { db } from "../firebase/config";
+import { collection, getDocs } from "firebase/firestore";
 export default {
   name: "Comp",
   data() {
@@ -64,6 +68,29 @@ export default {
         },
       ],
     };
+  },
+  beforeMount() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      const Data = collection(db, "Projects");
+      try {
+        const querySnapshot = await getDocs(Data);
+        querySnapshot.forEach((doc) => {
+          console.log(doc.data());
+          let obj = {};
+          obj["src"] = doc.data().pImage;
+          obj["name"] = doc.data().pName;
+          obj["text"] = doc.data().pText;
+          obj["liveLink"] = doc.data().pLink;
+          obj["sourceLink"] = doc.data().pSource;
+          this.project.push(obj);
+        });
+      } catch (e) {
+        console.log("error");
+      }
+    },
   },
 };
 </script>

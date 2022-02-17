@@ -8,5 +8,8 @@
   @apply text-green font-semibold;
 }
 .input {
-  @apply p-2 bg-mud outline-none border border-bor-green border-dashed w-128 rounded;
+  @apply p-2 bg-mud outline-none border border-bor-green border-dashed md:w-128 w-full  rounded;
+}
+.heading {
+  @apply text-3xl text-center sm:text-4xl font-DM;
 }

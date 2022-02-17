@@ -1,8 +1,8 @@
 <template>
   <section
-    class="container mx-auto flex flex-col justify-center text-white items-center px-44 font-DMSan"
+    class="container mx-auto flex flex-col justify-center text-white items-center h-auto min-h-screen px-3 lg:px-44 pt-6 lg:pt-0 font-DMSan"
   >
-    <h1 class="text-4xl font-DM">About me</h1>
+    <h1 class="heading">About me</h1>
     <p class="text-justify py-4">
       Hi there 👋. I am <span class="span">Atif</span> 😍, a self-taught web
       developer from Faisalabad, Pakistan. I help designers, small agencies and
@@ -18,27 +18,33 @@
       that standard. I am <span class="span">well</span> familiar with following
       <span class="span">skills</span>.
     </p>
-    <main class="my-3 grid grid-cols-4 gap-2">
+    <main
+      v-if="isMounted"
+      class="my-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
+    >
       <div
         v-for="item in skills"
         :key="item.id"
         class="bg-mud p-3 rounded-lg flex justify-center items-center flex-col"
       >
         <img class="w-10 rounded" :src="item.src" :alt="item.name" />
+
         <h1 class="font-bold text-lg py-2">{{ item.name }}</h1>
         <p class="text-center font-extralight">
           {{ item.text }}
         </p>
       </div>
     </main>
-    <main class="py-5">
-      <p class="text-2xl font-bold text-center">
+    <main v-else>
+      <Loading />
+    </main>
+    <main class="py-5 flex flex-col items-center">
+      <p class="sm:text-2xl text-xl font-bold text-center">
         Interested in Working with me?
       </p>
-      <p class="text-center text-sm pt-2">
+      <p class="text-center text-sm pt-2 sm:w-72">
         I am always <span class="span">happy</span> to dirty my hands on a
         <span class="span">complex</span>
-        <br />
         task, so do not
         <span class="span">hesitate</span> to hit me up with your requests!
       </p>
@@ -49,54 +55,39 @@
 
 <script>
 import Buttons from "./Buttons.vue";
+import { db } from "../firebase/config";
+import { collection, getDocs } from "firebase/firestore";
+import Loading from "./Loading.vue";
 export default {
   name: "About",
-  components: { Buttons },
+  components: { Buttons, Loading },
   data() {
     return {
-      skills: [
-        {
-          name: "Javascript",
-          src: "../assets/javascript.svg",
-          text: "Core technologie of the World Wide Web, alongside HTML and CSS",
-        },
-        {
-          name: "Typescript",
-          src: "../assets/typescript.svg",
-          text: "Superset of JavaScript and adds optional static typing to the language",
-        },
-        {
-          name: "Firebase",
-          src: "../assets/firebase.svg",
-          text: " A platform developed by Google for creating mobile and web applications",
-        },
-        {
-          name: "Vue Js",
-          src: "../assets/vuejs.svg",
-          text: "JavaScript framework for building single-page applications",
-        },
-        {
-          name: "Nuxt Js",
-          src: "../assets/nuxt.svg",
-          text: " JavaScript library based on Vue.js, Node.js, Webpack and Babel.js",
-        },
-        {
-          name: "Electron Js",
-          src: "../assets/electronjs.svg",
-          text: "Open-source JavaScript framework developed and maintained by GitHub",
-        },
-        {
-          name: "Sass/Scss",
-          src: "../assets/sass.svg",
-          text: "SASS/SCSS extends CSS by providing several mechanisms",
-        },
-        {
-          name: "Tailwindcss",
-          src: "../assets/tailwindcss.svg",
-          text: "A utility-first CSS framework packed with classes",
-        },
-      ],
+      isMounted: false,
+      skills: [],
     };
+  },
+  beforeMount() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      const Data = collection(db, "Skills");
+      try {
+        const querySnapshot = await getDocs(Data);
+        querySnapshot.forEach((doc) => {
+          console.log(doc.data());
+          let obj = {};
+          obj["name"] = doc.data().sName;
+          obj["src"] = doc.data().sLink;
+          obj["text"] = doc.data().sText;
+          this.skills.push(obj);
+        });
+        this.isMounted = true;
+      } catch (e) {
+        console.log(e);
+      }
+    },
   },
 };
 </script>

@@ -1,14 +1,14 @@
 <template>
   <section
-    class="w-full h-16 text-white flex justify-between container mx-auto"
+    class="w-full h-16 text-white bg-mud lg:bg-transparent flex justify-between lg:static relative"
   >
     <main
-      class="text-3xl w-1/6 font-DM text-center flex justify-between items-center px-3"
+      class="sm:text-3xl text-2xl md:w-1/6 font-DM text-center flex justify-center items-center px-3"
     >
-      AtifM.
+      Atif<span class="span">M.</span>
     </main>
     <main
-      class="w-2/6 flex justify-between items-center px-4 font-DMSan font-normal text-base"
+      class="w-2/6 lg:mr-14 bg-green flex justify-between flex-col lg:flex-row z-50 items-center px-4 font-DMSan font-normal text-base"
     >
       <Nav />
     </main>
