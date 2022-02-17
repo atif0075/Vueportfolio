@@ -38,6 +38,11 @@
     <main v-else>
       <Loading />
     </main>
+    <main v-if="showError">
+      <p class="text-sm text-red-600 bg-mud p-3 rounded">
+        {{ error }}
+      </p>
+    </main>
     <main class="py-5 flex flex-col items-center">
       <p class="sm:text-2xl text-xl font-bold text-center">
         Interested in Working with me?
@@ -58,6 +63,7 @@ import Buttons from "./Buttons.vue";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 import Loading from "./Loading.vue";
+import { querystring } from "@firebase/util";
 export default {
   name: "About",
   components: { Buttons, Loading },
@@ -65,10 +71,13 @@ export default {
     return {
       isMounted: false,
       skills: [],
+      error: "Something bad with your internet connection",
+      showError: false,
     };
   },
   beforeMount() {
     this.fetchData();
+    this.showError = false;
   },
   methods: {
     async fetchData() {
@@ -76,16 +85,17 @@ export default {
       try {
         const querySnapshot = await getDocs(Data);
         querySnapshot.forEach((doc) => {
-          console.log(doc.data());
           let obj = {};
           obj["name"] = doc.data().sName;
           obj["src"] = doc.data().sLink;
           obj["text"] = doc.data().sText;
           this.skills.push(obj);
         });
-        this.isMounted = true;
+        if (querystring) {
+          this.isMounted = true;
+        }
       } catch (e) {
-        console.log(e);
+        this.showError = true;
       }
     },
   },

@@ -23,7 +23,7 @@
         <span class="text-green relative"
           >Vue/Nuxt
           <img
-            class="absolute -bottom-3 left-0"
+            class="absolute -bottom-1 left-0"
             src="../assets/linegreen.svg"
           />
         </span>
@@ -33,7 +33,7 @@
         <span class="text-yellow-400 relative"
           >Firebase
           <span>
-            <img class="absolute -bottom-3 left-0" src="../assets/line.svg" />
+            <img class="absolute -bottom-1 left-0" src="../assets/line.svg" />
           </span>
         </span>
         for backend

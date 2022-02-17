@@ -6,12 +6,18 @@
     <main class="py-5 lg:py-12">
       <div>
         <label class="block py-2">Name</label>
-        <input class="input" placeholder="Enter your name......." type="text" />
+        <input
+          v-model="name"
+          class="input"
+          placeholder="Enter your name......."
+          type="text"
+        />
       </div>
 
       <div>
         <label class="block py-2">Email</label>
         <input
+          v-model="email"
           class="input"
           placeholder="Enter your email......."
           type="email"
@@ -21,12 +27,14 @@
         <label class="block py-2">Message</label>
 
         <textarea
+          v-model="message"
           class="p-2 bg-mud outline-none border border-bor-green border-dashed md:w-128 w-full h-56 rounded resize-none"
           placeholder="Enter your message......."
         ></textarea>
       </div>
       <div class="flex justify-end py-3">
         <button
+          @click="handleSubmit"
           class="px-5 py-2 bg-green text-dark focus:ring-offset-light-green duration-300 ease-in-out hover:bg-light-green font-DMSan font-bold rounded-md"
         >
           Submit
@@ -59,8 +67,42 @@
 </template>
 
 <script>
+import { db } from "../firebase/config";
+import { collection, addDoc, query, orderBy } from "firebase/firestore";
+import Loading from "./Loading.vue";
+
 export default {
   name: "Contact",
+  data() {
+    return {
+      name: "",
+      email: "",
+      messdage: "",
+    };
+  },
+  methods: {
+    async handleSubmit() {
+      const Data = collection(db, "UserMessages");
+      try {
+        await addDoc(Data, {
+          id: "2",
+          name: this.name,
+          email: this.email,
+          message: this.message,
+        });
+        console.log("hdalslasd");
+        setTimeout(() => {
+          const q = query(Data,collection("UserMessages"), orderBy("id", "desc"));
+          console.log(q);
+        }, 2000);
+
+        // console.log(Data.collection("UserMessages").orderBy("id", "asc"));
+      } catch (e) {
+        console.log("hell");
+        console.log(e);
+      }
+    },
+  },
 };
 </script>
 
