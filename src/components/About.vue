@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="container mx-auto flex flex-col justify-center text-white items-center h-auto min-h-screen px-3 lg:px-44 pt-6 lg:pt-0 font-DMSan"
-  >
+  <section class="aboutSection">
     <h1 class="heading">About me</h1>
     <p class="text-justify py-4">
       Hi there 👋. I am <span class="span">Atif</span> 😍, a self-taught web
@@ -18,19 +16,12 @@
       that standard. I am <span class="span">well</span> familiar with following
       <span class="span">skills</span>.
     </p>
-    <main
-      v-if="isMounted"
-      class="my-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
-    >
-      <div
-        v-for="item in skills"
-        :key="item.id"
-        class="bg-mud p-3 rounded-lg flex justify-center items-center flex-col"
-      >
+    <main v-if="isMounted" class="skillSet">
+      <div v-for="item in skills" :key="item.id" class="skillbox">
         <img class="w-10 rounded" :src="item.src" :alt="item.name" />
 
-        <h1 class="font-bold text-lg py-2">{{ item.name }}</h1>
-        <p class="text-center font-extralight">
+        <h1 class="skillHead">{{ item.name }}</h1>
+        <p class="skillText">
           {{ item.text }}
         </p>
       </div>
@@ -39,7 +30,7 @@
       <Loading />
     </main>
     <main v-if="showError">
-      <p class="text-sm text-red-600 bg-mud p-3 rounded">
+      <p class="error">
         {{ error }}
       </p>
     </main>

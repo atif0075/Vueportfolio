@@ -27,7 +27,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  linkActiveClass: 'is-active'
+  linkActiveClass: 'text-green'
 })
 
 export default router

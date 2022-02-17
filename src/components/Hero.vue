@@ -7,7 +7,7 @@
     <main class="z-10">
       <img
         class="w-24 sm:w-28 rounded-full p-1 border-8 border-mud"
-        src="../assets/myPic.jpg"
+        :src="imageLink"
         alt="myPic"
       />
     </main>
@@ -51,9 +51,12 @@ import BlurryBackground from "./BlurryBackground.vue";
 export default {
   name: "Hero",
   data: () => {
-    return {};
+    return {
+      imageLink:"https://i.postimg.cc/43Sz3q68/myPic.jpg"
+    };
   },
   components: { Buttons, BlurryBackground },
+  
 };
 </script>
 <style></style>

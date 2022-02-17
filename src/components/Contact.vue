@@ -1,11 +1,9 @@
 <template>
-  <section
-    class="container mx-auto md:flex md:flex-col text-white items-center px-3 md:px-44 pt-6 lg:pt-0 h-auto font-DMSan"
-  >
+  <section class="contactSection">
     <h1 class="heading">Contact me</h1>
     <main class="py-5 lg:py-12">
       <div>
-        <label class="block py-2">Name</label>
+        <label class="label">Name</label>
         <input
           v-model="name"
           class="input"
@@ -15,7 +13,7 @@
       </div>
 
       <div>
-        <label class="block py-2">Email</label>
+        <label class="label">Email</label>
         <input
           v-model="email"
           class="input"
@@ -24,7 +22,7 @@
         />
       </div>
       <div>
-        <label class="block py-2">Message</label>
+        <label class="label">Message</label>
 
         <textarea
           v-model="message"
@@ -32,33 +30,29 @@
           placeholder="Enter your message......."
         ></textarea>
       </div>
+      <main v-if="showLoad" class="flex justify-center">
+        <smallLoading />
+      </main>
       <div class="flex justify-end py-3">
-        <button
-          @click="handleSubmit"
-          class="px-5 py-2 bg-green text-dark focus:ring-offset-light-green duration-300 ease-in-out hover:bg-light-green font-DMSan font-bold rounded-md"
-        >
-          Submit
+        <button @click="handleSubmit" class="btnGreen">
+          {{ Submit }}
         </button>
       </div>
       <p>Or <span class="span">Contact</span> using</p>
       <div class="flex justify-evenly items-center py-4">
-        <a
-          href="https://github.com/atif0075"
-          target="_blank"
-          class="hover:bg-mud p-1 rounded duration-300 ease-in-out"
-        >
+        <a :href="githubLink" target="_blank" class="icon">
           <img class="w-8" src="../assets/Social/Github.svg" alt="Github" />
         </a>
-        <a href="" class="hover:bg-mud p-1 rounded duration-300 ease-in-out">
+        <a :href="mailLink" class="icon">
           <img class="w-8" src="../assets/Social/mail.svg" alt="Mail" />
         </a>
-        <a href="" class="hover:bg-mud p-1 rounded duration-300 ease-in-out">
+        <a :href="phoneLink" class="icon">
           <img class="w-8" src="../assets/Social/phone.svg" alt="Phone" />
         </a>
-        <a href="" class="hover:bg-mud p-1 rounded duration-300 ease-in-out">
+        <a :href="whatsappLink" target="_blank" class="icon">
           <img class="w-8" src="../assets/Social/whatsapp.svg" alt="Whatsapp" />
         </a>
-        <a href="" class="hover:bg-mud p-1 rounded duration-300 ease-in-out">
+        <a :href="linkedinLink" target="_blank" class="icon">
           <img class="w-8" src="../assets/Social/linkedin.svg" alt="Linkedin" />
         </a>
       </div>
@@ -69,7 +63,7 @@
 <script>
 import { db } from "../firebase/config";
 import { collection, addDoc, query, orderBy } from "firebase/firestore";
-import Loading from "./Loading.vue";
+import smallLoading from "./smallLoading.vue";
 
 export default {
   name: "Contact",
@@ -77,32 +71,41 @@ export default {
     return {
       name: "",
       email: "",
-      messdage: "",
+      message: "",
+      Submit: "Submit",
+      showLoad: false,
+      githubLink: "https://github.com/atif0075",
+      mailLink: "mailto:matifm@protonmail.com",
+      phoneLink: "tel:+923029798428",
+      whatsappLink: "https://wa.link/ygna50",
+      linkedinLink: "https://www.linkedin.com",
     };
   },
   methods: {
     async handleSubmit() {
+      this.showLoad = true;
       const Data = collection(db, "UserMessages");
       try {
         await addDoc(Data, {
-          id: "2",
           name: this.name,
           email: this.email,
           message: this.message,
         });
         console.log("hdalslasd");
+        this.Submit = "Submitted";
+        this.showLoad = false;
         setTimeout(() => {
-          const q = query(Data,collection("UserMessages"), orderBy("id", "desc"));
-          console.log(q);
-        }, 2000);
-
-        // console.log(Data.collection("UserMessages").orderBy("id", "asc"));
+          this.name = "";
+          this.email = "";
+          this.message = "";
+          this.Submit = "Submit";
+        }, 5000);
       } catch (e) {
-        console.log("hell");
         console.log(e);
       }
     },
   },
+  components: { smallLoading },
 };
 </script>
 
