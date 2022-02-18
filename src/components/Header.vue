@@ -66,14 +66,14 @@ export default {
 }
 
 .hamburger div {
-  width: 30px;
+  width: 25px;
   height: 3px;
-  background: #f2f5f7;
+  background: #00dc82;
   margin: 5px;
   transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .hamburger {
     display: block;
     position: absolute;

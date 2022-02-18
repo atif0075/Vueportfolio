@@ -1,7 +1,11 @@
 <template>
   <div class="bg-dark h-auto min-h-screen">
     <Header />
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 <script>
@@ -24,5 +28,15 @@ export default {
 }
 *::-webkit-scrollbar-thumb {
   background: #00dc82;
+}
+/* Router Transition */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
