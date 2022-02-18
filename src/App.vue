@@ -29,6 +29,10 @@ export default {
 *::-webkit-scrollbar-thumb {
   background: #00dc82;
 }
+* {
+  scrollbar-color: #00dc82 #001e26;
+  scrollbar-width: thin;
+}
 /* Router Transition */
 .fade-enter-active,
 .fade-leave-active {

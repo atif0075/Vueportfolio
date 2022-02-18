@@ -23,8 +23,9 @@
         <span class="text-green relative"
           >Vue/Nuxt
           <img
-            class="absolute -bottom-1 left-0"
-            src="../assets/linegreen.svg"
+            id="img1"
+            class="absolute -bottom-3 opacity-0 left-0 transition-opacity duration-500"
+            src="../assets/linegreen2.svg"
           />
         </span>
         and
@@ -33,7 +34,11 @@
         <span class="text-yellow-400 relative"
           >Firebase
           <span>
-            <img class="absolute -bottom-1 left-0" src="../assets/line.svg" />
+            <img
+              id="img2"
+              class="absolute -bottom-3 opacity-0 left-0 transition-opacity duration-500"
+              src="../assets/line2.svg"
+            />
           </span>
         </span>
         for backend
@@ -48,15 +53,23 @@
 <script>
 import Buttons from "./Buttons.vue";
 import BlurryBackground from "./BlurryBackground.vue";
+window.addEventListener("load", function () {
+  console.log("hello");
+  setTimeout(() => {
+    img1.classList.remove("opacity-0");
+  }, 500);
+  setTimeout(() => {
+    img2.classList.remove("opacity-0");
+  }, 1000);
+});
 export default {
   name: "Hero",
   data: () => {
     return {
-      imageLink:"https://i.postimg.cc/43Sz3q68/myPic.jpg"
+      imageLink: "https://i.postimg.cc/43Sz3q68/myPic.jpg",
     };
   },
   components: { Buttons, BlurryBackground },
-  
 };
 </script>
 <style></style>

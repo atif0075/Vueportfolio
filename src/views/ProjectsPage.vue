@@ -36,7 +36,7 @@
       </div>
     </main>
   </section>
-  <main v-else class="flex justify-center items-center h-96">
+  <main v-else class="flex justify-center items-center h-screen">
     <Loading />
   </main>
 </template>
