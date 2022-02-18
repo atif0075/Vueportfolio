@@ -2,8 +2,8 @@
   <section class="aboutSection">
     <h1 class="heading">About me</h1>
     <p class="text-justify py-4">
-      Hi there 👋. I am <span class="span">Atif</span> 😍, a self-taught web
-      developer from Faisalabad, Pakistan. I help designers, small agencies and
+      Hi there 👋. I am <span class="span">Atif</span> 😍, a web
+      developer based in Faisalabad, Pakistan. I help designers, small agencies and
       businesses bring their ideas to life. Powered by
       <span class="span">Figma</span>,
       <span class="span">VS Code</span>
