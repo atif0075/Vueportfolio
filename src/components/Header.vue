@@ -18,7 +18,7 @@
         </div>
       </div>
     </main>
-    <ul id="navLinks" class="nav-links navbar">
+    <ul id="navLinks" class="nav-links navbar pointer-events-auto">
       <li>
         <router-link @click="hide" class="routeBtn" to="/">Home</router-link>
       </li>
@@ -86,9 +86,11 @@ export default {
 
   .nav-links li {
     opacity: 0;
+    display: none;
     transition: all 0.5s ease 0.1s;
   }
   li.fade {
+    display: block;
     opacity: 1;
   }
 }
